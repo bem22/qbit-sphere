@@ -17,11 +17,10 @@
         <h1>ESP Color Picker</h1>
       </div>
       <a class="btn btn-primary btn-lg" href="#" id="change_color" role="button">Change Color</a>
-      <input class="jscolor {onFineChange:'update(this)'}" id="rgb">
+      <input onchange="updateSliderPWM(this)" class="jscolor {onFineChange:'update(this)'}" id="rgb">
     </div>
 
     <script src="pickerjs.js"></script>
   </body>
 
 </html>
-
