@@ -25,6 +25,7 @@ AsyncWebServer server(80);
 // Create a WebSocket object
 
 AsyncWebSocket ws("/ws");
+
 // Set LED GPIO
 const int ledPin1 = 14;
 const int ledPin2 = 12;
