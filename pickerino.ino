@@ -83,6 +83,7 @@ void handleWebSocketMessage(void *arg, uint8_t *data, size_t len) {
   AwsFrameInfo *info = (AwsFrameInfo*)arg;
   if (info->final && info->index == 0 && info->len == len && info->opcode == WS_TEXT) {
     data[len] = 0;
+
     message = (char*)data;
     if (message.indexOf("1s") >= 0) {
       sliderValue1 = message.substring(2);
@@ -104,6 +105,10 @@ void handleWebSocketMessage(void *arg, uint8_t *data, size_t len) {
       Serial.println(dutyCycle3);
       Serial.print(getSliderValues());
       notifyClients(getSliderValues());
+    }
+    if (message.indexOF("pi") >= 0) {
+      message = message.substring(2);
+      Serial.println(message);
     }
     if (strcmp((char*)data, "getValues") == 0) {
       notifyClients(getSliderValues());
