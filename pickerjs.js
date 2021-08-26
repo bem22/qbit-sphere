@@ -25,8 +25,6 @@ function onload(event) {
     initWebSocket();
 }
 
-function getValues(){
-    websocket.send("getValues");
 }
 
 function initWebSocket() {
@@ -39,7 +37,6 @@ function initWebSocket() {
 
 function onOpen(event) {
     console.log('Connection opened');
-    getValues();
 }
 
 function onClose(event) {
@@ -48,7 +45,8 @@ function onClose(event) {
 }
 
 function updatePickedColor() {
-    websocket.send(document.getElementById("rgb").value);
+    console.log(document.getElementById("rgb").value);
+    websocket.send("pi"+document.getElementById("rgb").value);
 }
 
 function onMessage(event) {
